@@ -1,0 +1,164 @@
+.fixed-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  transition: 0.5s;
+
+  nav {
+    div {
+      a {
+        svg {
+          path {
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and(max-width: $br-md) {
+    background-color: #132026;
+    box-shadow: 0px 10px 50px #0b0b0b40;
+
+    nav {
+      div {
+        a {
+          svg {
+            path {
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    background-color: #132026;
+    box-shadow: 0px 10px 50px #0b0b0b40;
+
+    nav {
+      div {
+        a {
+          svg {
+            path {
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .wrapper__nav-group {
+    padding: 1rem 0;
+  }
+}
+
+.wrapper {
+  &__nav-group {
+    padding: 1.5rem 0;
+
+    .menu__center {
+      // position: absolute;
+      // left: 50%;
+      // top: 50%;
+      // transform: translate(-50%, -50%);
+
+      ul {
+        li {
+          margin: 0 10px;
+
+          @media screen and(max-width: 1024px) {
+            margin: 0 5px;
+          }
+
+          .nav-link {
+            transition: 0.5s;
+
+            &.active {
+              color: color("yellow") !important;
+              opacity: 1;
+            }
+
+            &:hover {
+              color: color("yellow") !important;
+            }
+          }
+        }
+      }
+
+      @media screen and(max-width: $br-md) {
+        position: initial;
+        left: initial;
+        top: initial;
+        transform: initial;
+
+        ul {
+          margin-top: 15px;
+          li {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav__button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  outline-style: none;
+  span {
+    width: 100%;
+    height: 2px;
+    background-color: color("yellow");
+    margin-bottom: 5px;
+    display: inline-block;
+    transition: 0.5s;
+
+    &:nth-child(1) {
+    }
+    &:nth-child(2) {
+      width: 80%;
+    }
+    &:nth-child(3) {
+      width: 60%;
+      margin-bottom: 0;
+    }
+  }
+
+  &:active {
+    outline-style: none;
+  }
+  &:hover {
+    outline-style: none;
+  }
+  &:focus {
+    outline-style: none;
+  }
+
+  &[aria-expanded="true"] {
+    span {
+      &:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+        margin-bottom: 0;
+      }
+      &:nth-child(2) {
+        display: none;
+        margin-bottom: 0;
+      }
+      &:nth-child(3) {
+        width: 100%;
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
